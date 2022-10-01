@@ -6,3 +6,31 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model Users {
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String
+  picture String
+  nickname String
+  name String?
+  description String
+  teammate_description String
+  user_reactions Relations[] @relation("user_reactions")
+  reacted_to_user Relations[] @relation("reacted_to_user")
+
+  @@map("users")
+}
+
+model Relations {
+  id Int @id @default(autoincrement())
+  user Users @relation(name: "user_reactions", fields: [user_id], references: [id])
+  player Users @relation(name: "reacted_to_user", fields: [player_id], references: [id])
+  user_id Int
+  player_id Int
+  teammate_request Boolean
+
+  @@map("relations")
+}
+ 

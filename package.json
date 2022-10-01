@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/victorgpj25/teammater-backend#readme",
   "dependencies": {
+    "@prisma/client": "^4.4.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
