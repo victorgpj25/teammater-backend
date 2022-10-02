@@ -20,3 +20,10 @@ export async function signUp(userData: IuserInsertData) {
 
     await userRepository.insert(userInsertData)
 }
+
+export async function signIn(signInData: {email: string, password: string}) {
+    const userId = await userUtils.validateSignIn(signInData.email, signInData.password)
+    const token = await encryptUtils.generateUserToken(Number(userId))
+
+    return token
+}
