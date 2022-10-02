@@ -16,3 +16,30 @@ export async function findByEmail(email: string) {
     })
     return user
 }
+
+export async function getRandomPlayer(userId: number) {
+    const playerList: userTypes.IPlayerData[] | null = await prisma.users.findMany({
+        select: {
+            id: true,
+            nickname: true,
+            name: true,
+            picture: true,
+            description: true,
+        },
+        where: { 
+            reacted_to_user: {
+                none: {
+                    user_id: userId
+                }
+            },
+            NOT: {
+                id: userId
+            }
+        }
+    })
+    if (!playerList) {
+        return null
+    }
+    const player = playerList[Math.floor(Math.random() * playerList.length)]
+    return player
+}
