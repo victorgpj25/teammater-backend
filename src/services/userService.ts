@@ -34,3 +34,9 @@ export async function getRandomPlayer(userId: number) {
 
     return player
 }
+
+export async function getTeammates(userId: number) {
+    const teammates = await userRepository.getTeammates(userId)
+
+    return teammates
+}
