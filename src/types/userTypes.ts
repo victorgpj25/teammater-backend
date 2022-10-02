@@ -15,7 +15,14 @@ export interface IPlayerData {
     nickname: string
     name?: string | null
     description: string
-    teammate_description?: string
+}
+
+export interface ITeammateData {
+    id: number
+    picture: string
+    nickname: string
+    name?: string | null
+    teammate_description: string
 }
 
 export type IuserInsertData = Omit<IUser, 'id'>

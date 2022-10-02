@@ -33,7 +33,7 @@ export async function getRandomPlayer(userId: number) {
             nickname: true,
             name: true,
             picture: true,
-            description: true,
+            description: true
         },
         where: { 
             reacted_to_user: {
@@ -51,4 +51,31 @@ export async function getRandomPlayer(userId: number) {
     }
     const player = playerList[Math.floor(Math.random() * playerList.length)]
     return player
+}
+
+export async function getTeammates(userId: number) {
+    const teammates: userTypes.ITeammateData[] | null = await prisma.users.findMany({
+        select: {
+            id: true,
+            nickname: true,
+            name: true,
+            picture: true,
+            teammate_description: true
+        },
+        where: { 
+            reacted_to_user: {
+                some: {
+                    user_id: userId,
+                    teammate_request: true
+                }
+            },
+            user_reactions: {
+                some: {
+                    player_id: userId,
+                    teammate_request: true
+                }
+            }
+        }
+    })
+    return teammates
 }
