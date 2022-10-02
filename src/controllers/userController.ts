@@ -15,7 +15,8 @@ export async function signIn(req: Request, res: Response) {
 }
 
 export async function getRandomPlayer(req: Request, res: Response) {
-    const player = await userService.getRandomPlayer(req.body)
+    const userId = Number(res.locals.userId)
+    const player = await userService.getRandomPlayer(userId)
 
     res.status(200).send(player)
 }

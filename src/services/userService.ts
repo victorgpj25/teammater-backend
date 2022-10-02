@@ -27,3 +27,9 @@ export async function signIn(signInData: {email: string, password: string}) {
 
     return token
 }
+
+export async function getRandomPlayer(userId: number) {
+    const player = await userRepository.getRandomPlayer(userId)
+
+    return player
+}
