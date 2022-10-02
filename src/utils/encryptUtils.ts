@@ -15,3 +15,12 @@ export async function generateUserToken(userId: number) {
 export async function verifyPasswordMatch(password: string, encryptedPassword: string) {
     return bcrypt.compareSync(password, encryptedPassword)
 }
+
+export async function validateToken(token: string) {
+    try {
+        const tokenData = jwt.verify(token, jwtKey)
+        return (<any>tokenData).userId
+    } catch {
+        throw {code: 'invalid_token', message: 'Validação do token falhou'}
+    }
+}
