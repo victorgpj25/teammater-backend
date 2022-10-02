@@ -20,3 +20,10 @@ export async function getRandomPlayer(req: Request, res: Response) {
 
     res.status(200).send(player)
 }
+
+export async function getTeammates(req: Request, res: Response) {
+    const userId = Number(res.locals.userId)
+    const teammates = await userService.getTeammates(userId)
+
+    res.status(200).send(teammates)
+}
