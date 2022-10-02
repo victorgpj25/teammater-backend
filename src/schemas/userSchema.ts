@@ -44,4 +44,20 @@ const signUpSchema = joi.object({
     )
 })
 
-export { signUpSchema }
+const signInSchema = joi.object({
+    email: joi.string().email().required()
+        .messages({
+            'any.required': 'Email é um campo obrigatório',
+            'string.base': 'Email enviado não é válido',
+            'string.email': 'Email enviado não é válido'
+        }
+    ),
+    password: joi.string().required()
+        .messages({
+            'any.required': 'Senha é um campo obrigatório',
+            'string.base': 'Senha enviada não é válida'
+        }
+    )
+})
+
+export { signUpSchema, signInSchema }
