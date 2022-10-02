@@ -17,6 +17,15 @@ export async function findByEmail(email: string) {
     return user
 }
 
+export async function findById(id: number) {
+    const user: userTypes.IUser | null = await prisma.users.findUnique({
+        where: {
+            id: id
+        }
+    })
+    return user
+}
+
 export async function getRandomPlayer(userId: number) {
     const playerList: userTypes.IPlayerData[] | null = await prisma.users.findMany({
         select: {
