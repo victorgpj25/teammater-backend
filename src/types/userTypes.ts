@@ -4,7 +4,7 @@ export interface IUser {
     password: string
     picture: string
     nickname: string
-    name?: string
+    name?: string | null
     description: string
     teammate_description: string
 }
