@@ -30,7 +30,7 @@ export async function signIn(signInData: {email: string, password: string}) {
 
 export async function getRandomPlayer(userId: number) {
     const player = await userRepository.getRandomPlayer(userId)
-    if (!player) throw {code: 'player_not_found', message: 'Não foi possivel encontrar um TeamMate ideal para você'}
+    if (!player) throw {code: 'no_players', message: 'Não foi possivel encontrar um TeamMate ideal para você'}
 
     return player
 }
