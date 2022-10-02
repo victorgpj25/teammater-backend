@@ -1,6 +1,6 @@
 import express from "express"
 
-import { askForTeammate, skipTeammate } from "../controllers/userController"
+import { askForTeammate, skipTeammate } from "../controllers/relationsController"
 import { verifyReqParams } from "../middlewares/reqParamsMiddleware"
 import { verifyToken } from "../middlewares/authMiddleware"
 
