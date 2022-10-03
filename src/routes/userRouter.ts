@@ -1,7 +1,7 @@
 import express from "express"
 
-import { signUp, signIn, getRandomPlayer, getTeammates } from "../controllers/userController"
-import { validateSignUpReqBody, validateSignInReqBody } from "../middlewares/userMiddleware"
+import { signUp, signIn, getRandomPlayer, getTeammates, editProfile } from "../controllers/userController"
+import { validateSignUpReqBody, validateSignInReqBody, validateEditProfileReqBody } from "../middlewares/userMiddleware"
 import { verifyToken } from "../middlewares/authMiddleware"
 
 const userRouter = express.Router()

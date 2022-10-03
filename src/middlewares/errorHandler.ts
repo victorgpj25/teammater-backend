@@ -22,6 +22,12 @@ export default function errorHandler(error: any, req: Request, res: Response, ne
     if (error.code === "unprocessable_signup_body") {
         return res.status(422).send({ErrorMessage: error.message})
     }
+    if (error.code === "unprocessable_signin_body") {
+        return res.status(422).send({ErrorMessage: error.message})
+    }
+    if (error.code === "unprocessable_edit_body") {
+        return res.status(422).send({ErrorMessage: error.message})
+    }
     if (error.code === 'invalid_req_params') {
         return res.status(422).send({ErrorMessage: error.message})
     }
