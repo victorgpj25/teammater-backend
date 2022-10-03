@@ -12,4 +12,6 @@ userRouter.post("/signin", validateSignInReqBody, signIn)
 userRouter.get("/player", verifyToken, getRandomPlayer)
 userRouter.get("/teammates", verifyToken, getTeammates)
 
+userRouter.put("/profile/edit", verifyToken, validateEditProfileReqBody, editProfile)
+
 export default userRouter
