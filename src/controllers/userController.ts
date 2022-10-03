@@ -27,3 +27,10 @@ export async function getTeammates(req: Request, res: Response) {
 
     res.status(200).send(teammates)
 }
+
+export async function editProfile(req: Request, res: Response) {
+    const userId = Number(res.locals.userId)
+    await userService.editProfile(req.body, userId)
+
+    res.status(200)
+}
