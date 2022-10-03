@@ -25,7 +25,6 @@ const signUpSchema = joi.object({
     ),
     name: joi.string().min(3)
         .messages({
-            'any.required': 'Nome é um campo obrigatório',
             'string.base': 'Nome enviado não é válido',
             'string.min': 'Nomes devem ter no mínimo 3 caracteres'
         }
@@ -71,7 +70,6 @@ const editProfileSchema = joi.object({
     ),
     name: joi.string().min(3)
         .messages({
-            'any.required': 'Nome é um campo obrigatório',
             'string.base': 'Nome enviado não é válido',
             'string.min': 'Nomes devem ter no mínimo 3 caracteres'
         }

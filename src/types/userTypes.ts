@@ -25,4 +25,12 @@ export interface ITeammateData {
     teammate_description: string
 }
 
+export interface IEditProfileData {
+    picture: string
+    nickname: string
+    name?: string | null
+    description: string
+    teammate_description: string
+}
+
 export type IuserInsertData = Omit<IUser, 'id'>
