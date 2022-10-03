@@ -79,3 +79,13 @@ export async function getTeammates(userId: number) {
     })
     return teammates
 }
+
+export async function update(editProfileData: userTypes.IEditProfileData, userId: number) {
+    await prisma.users.update({
+        where: {
+            id: userId
+        },
+        data: editProfileData
+    })
+    
+}

@@ -32,5 +32,5 @@ export async function editProfile(req: Request, res: Response) {
     const userId = Number(res.locals.userId)
     await userService.editProfile(req.body, userId)
 
-    res.status(200)
+    res.sendStatus(200)
 }
