@@ -2,7 +2,7 @@ import * as userRepository from '../repositories/userRepository'
 
 import * as userUtils from '../utils/userUtils'
 import * as encryptUtils from '../utils/encryptUtils'
-import { IuserInsertData, IEditProfileData } from '../types/userTypes'
+import { IuserInsertData, IProfileData } from '../types/userTypes'
 
 export async function signUp(userData: IuserInsertData) {
     await userUtils.verifyEmailConflict(userData.email)
@@ -41,7 +41,7 @@ export async function getTeammates(userId: number) {
     return teammates
 }
 
-export async function editProfile(editProfileData: IEditProfileData, userId: number) {
+export async function editProfile(editProfileData: IProfileData, userId: number) {
     await userRepository.update(editProfileData, userId)
 }
 

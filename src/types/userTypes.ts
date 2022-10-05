@@ -25,7 +25,7 @@ export interface ITeammateData {
     teammate_description: string
 }
 
-export interface IEditProfileData {
+export interface IProfileData {
     picture: string
     nickname: string
     name?: string | null

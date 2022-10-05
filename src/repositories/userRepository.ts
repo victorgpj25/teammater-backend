@@ -80,7 +80,7 @@ export async function getTeammates(userId: number) {
     return teammates
 }
 
-export async function update(editProfileData: userTypes.IEditProfileData, userId: number) {
+export async function update(editProfileData: userTypes.IProfileData, userId: number) {
     await prisma.users.update({
         where: {
             id: userId
@@ -88,4 +88,20 @@ export async function update(editProfileData: userTypes.IEditProfileData, userId
         data: editProfileData
     })
     
+}
+
+export async function getProfileData(userId: number) {
+    const profileData: userTypes.IProfileData | null = await prisma.users.findUnique({
+        select: {
+            nickname: true,
+            name: true,
+            picture: true,
+            description: true,
+            teammate_description: true
+        },
+        where: { 
+            id: userId
+        }
+    })
+    return profileData
 }
