@@ -44,3 +44,11 @@ export async function getTeammates(userId: number) {
 export async function editProfile(editProfileData: IEditProfileData, userId: number) {
     await userRepository.update(editProfileData, userId)
 }
+
+
+export async function getProfileData(userId: number) {
+    const profileData = await userRepository.getProfileData(userId)
+    if (!profileData) throw {code: "player_not_found", message: "O id enviado não corresponde a um player registrado"}
+
+    return profileData
+}
