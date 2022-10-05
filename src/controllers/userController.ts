@@ -34,3 +34,10 @@ export async function editProfile(req: Request, res: Response) {
 
     res.sendStatus(200)
 }
+
+export async function getProfileData(req: Request, res: Response) {
+    const userId = Number(res.locals.userId)
+    const profileData = await userService.getProfileData(userId)
+
+    res.status(200).send(profileData)
+}
