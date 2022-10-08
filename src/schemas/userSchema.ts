@@ -23,7 +23,7 @@ const signUpSchema = joi.object({
             'string.min': 'Nicknames devem ter no mínimo 3 caracteres'
         }
     ),
-    name: joi.string().min(3)
+    name: joi.string().min(3).allow(null, '')
         .messages({
             'string.base': 'Nome enviado não é válido',
             'string.min': 'Nomes devem ter no mínimo 3 caracteres'
@@ -68,7 +68,7 @@ const editProfileSchema = joi.object({
             'string.min': 'Nicknames devem ter no mínimo 3 caracteres'
         }
     ),
-    name: joi.string().min(3)
+    name: joi.string().min(3).allow(null, '')
         .messages({
             'string.base': 'Nome enviado não é válido',
             'string.min': 'Nomes devem ter no mínimo 3 caracteres'
