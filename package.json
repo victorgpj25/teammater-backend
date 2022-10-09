@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/app.ts",
+    "build": "tsc && npx prisma migrate deploy",
+    "start": "node dist/app.js",
     "test": "npx dotenv-cli -e .env.test jest -i --no-cache"
   },
   "repository": {
